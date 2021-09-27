@@ -1,9 +1,12 @@
+import './App.css'
+import Header from './components/Header'
 function App() {
-  
+  const data='Sayid radhin'
   return (
     <div>
-      <h1 style={{color:'red'}}>Hello world</h1>
-      <p>this is sample description</p>
+       <Header data={data}/>
+      <p>this is sample description {data}</p>
+     
     </div>
   
 
