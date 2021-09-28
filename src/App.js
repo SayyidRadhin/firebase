@@ -1,31 +1,13 @@
+import Counter from "./Counter"
 import {useState} from 'react'
-import Employee from './Employee'
-
 function App() {
-  const [count,setCount] =useState(0)
-  
-  const addCount=()=>{
-    setCount(count+1)
-    
-  }
-  
-  let emp =[{name:'bill gates',age:16},
-  {name:'Steve Jobs',age:17},
-  {name:'Musk',age:17},
-]
+  const [state,setState]=useState(false)
   return (
     <div className='App'>
-      <button onClick={addCount}>Add</button>
-     
-     {
-       emp.map((obj,index)=>
-              (
-                <Employee key={index} {...obj} />
-              )
-       )
-     }
+      <h1 onClick={()=>setState(!state)}>Show or Hide</h1>
+     { state && <Counter/>}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
