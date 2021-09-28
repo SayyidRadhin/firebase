@@ -1,15 +1,23 @@
-import './App.css'
-import Header from './components/Header'
+import {useState} from 'react'
+import Counter from './Counter';
 function App() {
-  const data='Sayid radhin'
+  const [count,setCount] =useState(0)
+  
+  const addCount=()=>{
+    setCount(count+1)
+    
+  }
+  let obj = {
+    title:'1st Counter',
+    count
+  }
   return (
-    <div>
-       <Header data={data}/>
-      <p>this is sample description {data}</p>
+    <div className='App'>
+      <button onClick={addCount}>Add</button>
+     <Counter {...obj}/>
+     <Counter title='2nd Counter' count={count}/>
      
     </div>
-  
-
   );
 }
 
