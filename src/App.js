@@ -2,8 +2,9 @@ import {useState} from 'react'
 import About from './Container/About'
 import Profile from './Container/Profile'
 import {Route,Link,useHistory} from 'react-router-dom'
+import {AppContext} from './AppContext'
 function App() {
-  const [state, setState] = useState('')
+  const [state, setState] = useState(10)
   const history = useHistory()
   
   return (
@@ -11,9 +12,14 @@ function App() {
       
        <button onClick={()=>history.push('/about')}>About me</button>
        <button onClick={()=>history.push('/profile')}>Profile</button>
-       <Route component={About} path='/about'/>
-       <Route render={()=><h1>hello</h1>} path='/profile'/>
-         
+      <AppContext.Provider value={{data:state}}>
+       <Route path='/about'>
+         <About></About>
+       </Route>
+       <Route path='/profile' >
+         <Profile></Profile>
+       </Route>
+       </AppContext.Provider>
     </div>
   )
 }
