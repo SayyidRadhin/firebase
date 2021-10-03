@@ -1,22 +1,18 @@
 import {useState} from 'react'
 import About from './Container/About'
 import Profile from './Container/Profile'
-import {BrowserRouter as Router,Route,Link} from 'react-router-dom'
+import {Route,Link,useHistory} from 'react-router-dom'
 function App() {
   const [state, setState] = useState('')
- 
+  const history = useHistory()
   
-
-
   return (
     <div className="App">
       
-     <Router>
-     <Link to='/about'>About page</Link>
-      <Link to='/profile'>Profile page</Link>
+       <button onClick={()=>history.push('/about')}>About me</button>
+       <button onClick={()=>history.push('/profile')}>Profile</button>
        <Route component={About} path='/about'/>
        <Route render={()=><h1>hello</h1>} path='/profile'/>
-     </Router>
          
     </div>
   )
