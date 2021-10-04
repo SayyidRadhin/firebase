@@ -4,11 +4,9 @@ function App() {
   return (
     <div className="App">
       <button onClick={()=>{
-          Firebase.firestore().collection('products').add({
-            name:'MI',
-            price:1200
+          Firebase.firestore().collection('products').doc('3AD2MCnPqYqswL3PHwLL').delete().then(()=>{
+            console.log('Done');
           })
-         
       }}>Click me</button>
     </div>
   );
