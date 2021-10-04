@@ -4,14 +4,14 @@ function App() {
   return (
     <div className="App">
       <button onClick={()=>{
-          Firebase.firestore().collection('products').get().then(snapshot=>{
-            snapshot.forEach((obj)=>{
-              console.log(obj.data(),obj.id);
-            })
+          Firebase.firestore().collection('products').add({
+            name:'MI',
+            price:1200
           })
+         
       }}>Click me</button>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
